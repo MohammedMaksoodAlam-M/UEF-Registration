@@ -1,0 +1,7 @@
+Note: Please save the hexagonal LED pattern image provided by the user as "hexagon-background.jpg" in the project root directory.
+
+The image shows:
+- Futuristic hexagonal/honeycomb LED light patterns
+- Neon colors: pink, purple, blue, orange
+- Dark background with glowing geometric edges
+- Tunnel/architectural perspective

@@ -496,10 +496,10 @@ body {
 }
 
 .member-image-container {
-    width: 180px;
-    height: 180px;
+    width: 200px;
+    height: 260px;
     margin: 0 auto 25px;
-    border-radius: 50%;
+    border-radius: 20px;
     overflow: hidden;
     border: 3px solid rgba(197, 31, 132, 0.4);
     box-shadow:
@@ -516,7 +516,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle, transparent 40%, rgba(197, 31, 132, 0.2) 100%);
+    background: linear-gradient(to bottom, transparent 50%, rgba(197, 31, 132, 0.15) 100%);
     z-index: 1;
     transition: opacity 0.4s ease;
     opacity: 0;
@@ -568,8 +568,10 @@ body {
 /* Objectives Section */
 .objectives-section {
     padding: 120px 0;
-    background:
-        linear-gradient(135deg, #0a0a1e 0%, #1a1a2e 50%, #0a0a1e 100%);
+    background-image: url('images/pexels-zachtheshoota-1888883.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     position: relative;
     overflow: hidden;
 }
@@ -581,9 +583,10 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image:
-        repeating-linear-gradient(0deg, rgba(197, 31, 132, 0.03) 0px, transparent 1px, transparent 40px, rgba(197, 31, 132, 0.03) 41px),
-        repeating-linear-gradient(90deg, rgba(197, 31, 132, 0.03) 0px, transparent 1px, transparent 40px, rgba(197, 31, 132, 0.03) 41px);
+    background: linear-gradient(135deg,
+        rgba(10, 10, 30, 0.85) 0%,
+        rgba(26, 26, 46, 0.9) 50%,
+        rgba(10, 10, 30, 0.85) 100%);
     pointer-events: none;
 }
 
@@ -2230,8 +2233,8 @@ body {
     }
 
     .member-image-container {
-        width: 150px;
-        height: 150px;
+        width: 160px;
+        height: 210px;
         margin-bottom: 20px;
     }
 
@@ -2434,8 +2437,8 @@ body {
     }
 
     .member-image-container {
-        width: 140px;
-        height: 140px;
+        width: 150px;
+        height: 195px;
         margin-bottom: 18px;
         border-width: 2px;
     }
