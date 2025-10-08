@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UEF Trade Summit 2025 - Registration</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-content">
+                    <img src="UEF-logo.png" alt="UEF Logo" class="logo">
+                    <div class="nav-links">
+                        <a href="#about">About</a>
+                        <a href="#objectives">Objectives</a>
+                        <a href="#summit">Summit 2025</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+                    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+                <div class="mobile-nav" id="mobileNav">
+                    <a href="#about" onclick="closeMobileMenu()">About</a>
+                    <a href="#objectives" onclick="closeMobileMenu()">Objectives</a>
+                    <a href="#summit" onclick="closeMobileMenu()">Summit 2025</a>
+                    <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">UEF Trade Summit 2025</h1>
+                <p class="hero-subtitle">Building Economic Bridges for a Prosperous Tomorrow</p>
+                <p class="hero-description">Join the premier Chamber of Commerce event bringing together Industrialists, Businessmen, Entrepreneurs, and Professionals</p>
+                <button class="register-btn" id="registerBtn">REGISTER NOW</button>
+            </div>
+                </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>About United Economic Forum</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-left">
+                    <div class="founder-image-container">
+                        <img src="about-person.png" alt="Founder Dr. B.S. Abdur Rahman" class="founder-image">
+                        <div class="founder-caption">
+                            <p class="founder-title">Founder, UEF</p>
+                            <p class="founder-name">Alhaj Late Dr. B.S. Abdur Rahman</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-right">
+                    <p class="about-text">
+                        The United Economic Forum strives to work to improve the socio-economic status of the backward community and society at large. Founded in 1979 by Alhaj Dr B.S. Abdur Rahman, Visionary and Educationist, the United Economic Forum aims to bring together Industrialists, Businessmen, Entrepreneurs, Technocrats, Professionals, Intellectuals and NGOs to work for the common good of the community.
+                    </p>
+                    <p class="about-text">
+                        The forum today is a premier Chamber of Commerce and seeks to be a significant contributor to Economic, Educational and Social transformation of the State of Tamil Nadu.
+                    </p>
+                    <p class="about-text">
+                        One among the forum's many goals is to work towards the development of Entrepreneurs, offer them the latest in training, technology and access to emerging opportunities, innovations, emerging markets, government concessions and facilitate project financing that include Sharia-compliant funds.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="objectives" class="objectives-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Objectives</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="objectives-grid">
+                <div class="objective-card">
+                    <div class="objective-number">01</div>
+                    <h3>Chamber of Commerce</h3>
+                    <p>To function as a Chamber of Commerce for promoting Trade, Commerce and Industry.</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-number">02</div>
+                    <h3>Entrepreneurial Support</h3>
+                    <p>To provide entrepreneurial support for existing members as also to encourage and mentor aspiring and budding ones.</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-number">03</div>
+                    <h3>Active Networking</h3>
+                    <p>To actively promote networking among members as well as other trade organisations and chambers to identify mutually beneficial opportunities.</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-number">04</div>
+                    <h3>Government Dialogue</h3>
+                    <p>To hold dialogue with government by providing feedback from the industry on policy matters, advocate and help fine-tune policies and legislations.</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-number">05</div>
+                    <h3>Market Research</h3>
+                    <p>To conduct market surveys, carry out economic research and circulate findings to members through newsletters, economic bulletins, and IT tools.</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-number">06</div>
+                    <h3>Trade Missions</h3>
+                    <p>To organize Trade and Investment missions for members to explore investment and business development potential in India and globally.</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-number">07</div>
+                    <h3>Investment Facilitation</h3>
+                    <p>To setup an Advisory & Investment Facilitation Cell comprising experts in Finance, Law, Investment, and Market Research.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Event Gallery</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openModal('18-5-min.png', 'UEF Conference Event')">
+                    <img src="18-5-min.png" alt="UEF Conference Event" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <span class="gallery-icon">⊕</span>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openModal('18-2-min.png', 'UEF Conference Gathering')">
+                    <img src="18-2-min.png" alt="UEF Conference Gathering" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <span class="gallery-icon">⊕</span>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openModal('18-1-min.png', 'UEF Conference Panel')">
+                    <img src="18-1-min.png" alt="UEF Conference Panel" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <span class="gallery-icon">⊕</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="summit" class="summit-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>UEF Trade Summit 2025</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="summit-content">
+                <p class="summit-text">
+                    After successful two trade summits in 2015 and 2017 and an International Roundtable in 2018, the third edition of UEF TRADE SUMMIT is all set to return on a much bigger scale with better prospects. This one-of-a-kind event will be presented during December 2025 as a direct initiative of the prestigious UEF Chamber Of Commerce.
+                </p>
+                <p class="summit-text">
+                    Building on the experience, outcome and expectations of the previous editions of the TRADE SUMMITS, the UEF Chamber Of Commerce will provide further impetus to the UEF World Summit through professional diligence, valuable insight, innovative excellence and world-class quality standards making it one of the most sought after trade events in the industry.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Contact Us</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h3>Office Address</h3>
+                        <p>Buhari Building, Ground Floor #4,<br>
+                        Moores Road, Chennai - 600 006,<br>
+                        Tamil Nadu, India</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Phone</h3>
+                        <p>+91 - 44 - 4204 3507<br>
+                        +91 - 44 - 4851 8963</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Email</h3>
+                        <p><a href="mailto:info@unitedeconomicforum.com">info@unitedeconomicforum.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <img src="UEF-logo.png" alt="UEF Logo" class="footer-logo">
+                    <p>United Economic Forum - Working for the common good of the community since 1979</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About UEF</a></li>
+                        <li><a href="#objectives">Our Objectives</a></li>
+                        <li><a href="#summit">Trade Summit 2025</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect With Us</h4>
+                    <p><strong>Office Address:</strong><br>
+                    Buhari Building, Ground Floor #4,<br>
+                    Moores Road, Chennai - 600 006,<br>
+                    Tamil Nadu, India</p>
+                    <p><strong>Phone:</strong> +91 - 44 - 4204 3507, 4851 8963</p>
+                    <p><strong>Email:</strong> info@unitedeconomicforum.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 United Economic Forum. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Image Modal Popup -->
+    <div id="imageModal" class="modal">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div class="modal-caption" id="modalCaption"></div>
+    </div>
+
+    <!-- Registration Modal -->
+    <div id="registrationModal" class="registration-modal">
+        <div class="registration-content">
+            <span class="registration-close" onclick="closeRegistrationModal()">&times;</span>
+            <h2 class="registration-title">Register for UEF Trade Summit 2025</h2>
+            
+            <form id="registrationForm" class="registration-form">
+                <!-- Personal Information Section -->
+                <div class="form-section">
+                    <h3>Personal Information</h3>
+                    
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <div class="email-verification-container">
+                            <input type="email" id="email" name="email" required placeholder="Enter your email address">
+                            <button type="button" class="send-otp-btn" id="sendOtpBtn" onclick="sendOTP()">Send OTP</button>
+                        </div>
+                        <span class="email-helper-text">We'll send a verification code to this email</span>
+                    </div>
+
+                    <div class="form-group" id="otpGroup" style="display: none;">
+                        <label for="otpInput">Enter OTP *</label>
+                        <div class="otp-verification-container">
+                            <input type="text" id="otpInput" name="otpInput" maxlength="6" placeholder="Enter 6-digit code">
+                            <button type="button" class="verify-otp-btn" id="verifyOtpBtn" onclick="verifyOTP()">Verify</button>
+                            <span class="verification-status" id="verificationStatus"></span>
+                        </div>
+                        <div class="otp-timer-container">
+                            <span id="otpTimer"></span>
+                            <button type="button" class="resend-otp-btn" id="resendOtpBtn" onclick="sendOTP()" style="display: none;">Resend OTP</button>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="dob">Date of Birth *</label>
+                            <input type="date" id="dob" name="dob" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="gender">Gender *</label>
+                            <select id="gender" name="gender" required>
+                                <option value="">Select Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                                <option value="prefer-not-to-say">Prefer not to say</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="profilePic">Profile Picture (Optional)</label>
+                        <input type="file" id="profilePic" name="profilePic" accept="image/*" class="file-input">
+                        <label for="profilePic" class="file-label">Choose File</label>
+                        <span class="file-name">No file chosen</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="occupation">Occupation *</label>
+                        <select id="occupation" name="occupation" required>
+                            <option value="">Select Occupation</option>
+                            <option value="business-owner">Business Owner</option>
+                            <option value="entrepreneur">Entrepreneur</option>
+                            <option value="ceo">CEO/President</option>
+                            <option value="director">Director</option>
+                            <option value="manager">Manager</option>
+                            <option value="engineer">Engineer</option>
+                            <option value="doctor">Doctor</option>
+                            <option value="lawyer">Lawyer</option>
+                            <option value="teacher">Teacher/Professor</option>
+                            <option value="consultant">Consultant</option>
+                            <option value="accountant">Accountant</option>
+                            <option value="architect">Architect</option>
+                            <option value="designer">Designer</option>
+                            <option value="developer">Software Developer</option>
+                            <option value="marketing">Marketing Professional</option>
+                            <option value="sales">Sales Professional</option>
+                            <option value="hr">HR Professional</option>
+                            <option value="finance">Finance Professional</option>
+                            <option value="real-estate">Real Estate</option>
+                            <option value="healthcare">Healthcare Professional</option>
+                            <option value="government">Government Employee</option>
+                            <option value="ngo">NGO Worker</option>
+                            <option value="student">Student</option>
+                            <option value="retired">Retired</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Skills</label>
+                        <div class="skills-container">
+                            <div class="skills-input-wrapper">
+                                <input type="text" id="skillInput" placeholder="Enter a skill and press Enter or click Add">
+                                <button type="button" class="add-skill-btn" onclick="addSkill()">Add</button>
+                            </div>
+                            <div id="skillsList" class="skills-list"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Questionnaire Section -->
+                <div class="form-section">
+                    <h3>Questionnaire</h3>
+                    
+                    <div class="form-group">
+                        <label>1. How good would you rate your networking skills?</label>
+                        <div class="rating-container">
+                            <div class="rating-circles">
+                                <input type="radio" name="networking-rating" value="1" id="rate1">
+                                <label for="rate1" class="rating-circle"></label>
+                                <input type="radio" name="networking-rating" value="2" id="rate2">
+                                <label for="rate2" class="rating-circle"></label>
+                                <input type="radio" name="networking-rating" value="3" id="rate3">
+                                <label for="rate3" class="rating-circle"></label>
+                                <input type="radio" name="networking-rating" value="4" id="rate4">
+                                <label for="rate4" class="rating-circle"></label>
+                                <input type="radio" name="networking-rating" value="5" id="rate5">
+                                <label for="rate5" class="rating-circle"></label>
+                                <input type="radio" name="networking-rating" value="6" id="rate6">
+                                <label for="rate6" class="rating-circle"></label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="success">2. What would make you feel like the event was a success for you?</label>
+                        <textarea id="success" name="success" rows="3" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="meetPeople">3. What kinds of people are you looking to meet in the event?</label>
+                        <textarea id="meetPeople" name="meetPeople" rows="3" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="strengths">4. What would you say are your strengths?</label>
+                        <textarea id="strengths" name="strengths" rows="3" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="weaknesses">5. What are your weaknesses?</label>
+                        <textarea id="weaknesses" name="weaknesses" rows="3" required></textarea>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="submit-btn">Submit Registration</button>
+                    <button type="button" class="cancel-btn" onclick="closeRegistrationModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-storage-compat.js"></script>
+
+    <!-- Firebase Config -->
+    <script src="firebase-config.js"></script>
+
+    <!-- Main Script -->
+    <script src="script.js"></script>
+</body>
+</html>

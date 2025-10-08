@@ -1,0 +1,22 @@
+rules_version = '2';
+
+// Firebase Storage Security Rules for UEF Registration
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    // Allow anyone to upload profile pictures with validation
+    match /profile-pictures/{fileName} {
+      // Allow read access to all profile pictures
+      allow read: if true;
+
+      // Allow write (upload) with validation
+      allow write: if request.resource.size < 5 * 1024 * 1024  // Max 5MB
+                   && request.resource.contentType.matches('image/(jpeg|png|gif|webp)');  // Images only
+    }
+
+    // Deny access to all other paths by default
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}
