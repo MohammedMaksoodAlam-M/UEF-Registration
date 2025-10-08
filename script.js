@@ -342,7 +342,7 @@ function initScrollAnimations() {
     });
 
     // Observe cards and items
-    const cards = document.querySelectorAll('.objective-card, .gallery-item, .contact-item, .about-content, .board-member');
+    const cards = document.querySelectorAll('.objective-card, .gallery-item, .contact-item, .about-content, .board-member, .sponsor-card');
     cards.forEach((card, index) => {
         card.classList.add('scroll-item');
         card.style.setProperty('--delay', `${index * 0.1}s`);
