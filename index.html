@@ -52,11 +52,15 @@
         </div>
     </section>
 
+    <!-- CTA Section with Register Button -->
     <section class="cta-section">
         <div class="container">
             <div class="cta-content">
-                <p class="cta-description">Join the premier Chamber of Commerce event bringing together Industrialists, Businessmen, Entrepreneurs, and Professionals</p>
-                <button class="register-btn" id="registerBtn">REGISTER NOW</button>
+                <p class="cta-description">
+                    Be part of a transformative experience that brings together industry leaders, innovators, and visionaries
+                    to shape the future of global trade and economic development.
+                </p>
+                <button class="register-btn" id="registerBtn" onclick="openRegistrationModal()">Register Now</button>
             </div>
         </div>
     </section>
@@ -536,6 +540,25 @@
                     <div class="form-group">
                         <label for="weaknesses">5. What are your weaknesses?</label>
                         <textarea id="weaknesses" name="weaknesses" rows="3" required></textarea>
+                    </div>
+                </div>
+
+                <!-- Payment QR Code Section -->
+                <div class="form-section">
+                    <h3>Payment QR Code</h3>
+                    <div class="payment-qr-container">
+                        <img src="images/paymentqr.png" alt="Payment QR Code - Chamber of Commerce" class="payment-qr-image">
+                    </div>
+                </div>
+
+                <!-- Upload Payment Screenshot Section -->
+                <div class="form-section">
+                    <h3>Upload Payment Screenshot</h3>
+                    <div class="form-group">
+                        <label for="paymentScreenshot">Payment Confirmation Screenshot *</label>
+                        <input type="file" id="paymentScreenshot" name="paymentScreenshot" accept="image/*" class="file-input" required>
+                        <label for="paymentScreenshot" class="file-label">Choose File</label>
+                        <span class="payment-file-name file-name">No file chosen</span>
                     </div>
                 </div>
 

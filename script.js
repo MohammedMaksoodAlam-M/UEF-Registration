@@ -433,6 +433,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const fileNameElement = document.querySelector('.file-name');
         fileNameElement.textContent = fileName;
     });
+
+    // Payment screenshot file input handling
+    document.getElementById('paymentScreenshot').addEventListener('change', function(e) {
+        const fileName = e.target.files[0]?.name || 'No file chosen';
+        const fileNameElement = document.querySelector('.payment-file-name');
+        fileNameElement.textContent = fileName;
+    });
     
     // Form submission handling
     document.getElementById('registrationForm').addEventListener('submit', async function(e) {
@@ -507,7 +514,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 meetPeople: document.getElementById('meetPeople').value,
                 strengths: document.getElementById('strengths').value,
                 weaknesses: document.getElementById('weaknesses').value,
-                registrationDate: firebase.firestore.FieldValue.serverTimestamp()
+                registrationDate: firebase.firestore.FieldValue.serverTimestamp(),
+                ApprovalStatus: false
             };
 
             // Handle profile picture upload
@@ -525,6 +533,23 @@ document.addEventListener('DOMContentLoaded', function() {
                 formData.profilePicUrl = downloadURL;
             } else {
                 formData.profilePicUrl = null;
+            }
+
+            // Handle payment screenshot upload
+            const paymentScreenshotFile = document.getElementById('paymentScreenshot').files[0];
+            if (paymentScreenshotFile) {
+                // Create a unique filename
+                const filename = `payment-screenshots/${Date.now()}_${paymentScreenshotFile.name}`;
+
+                // Upload to Firebase Storage
+                const storageRef = storage.ref(filename);
+                const uploadTask = await storageRef.put(paymentScreenshotFile);
+
+                // Get download URL
+                const downloadURL = await uploadTask.ref.getDownloadURL();
+                formData.paymentScreenshotUrl = downloadURL;
+            } else {
+                formData.paymentScreenshotUrl = null;
             }
 
             // Save to Firestore
@@ -549,6 +574,7 @@ document.addEventListener('DOMContentLoaded', function() {
             skills = [];
             renderSkills();
             document.querySelector('.file-name').textContent = 'No file chosen';
+            document.querySelector('.payment-file-name').textContent = 'No file chosen';
 
             // Reset email verification state
             isEmailVerified = false;
