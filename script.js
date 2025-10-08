@@ -318,8 +318,57 @@ function verifyOTP() {
     }, 500); // Small delay for better UX
 }
 
+// Scroll Animation Setup
+function initScrollAnimations() {
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+            }
+        });
+    }, observerOptions);
+
+    // Observe all sections
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => {
+        section.classList.add('scroll-section');
+        observer.observe(section);
+    });
+
+    // Observe cards and items
+    const cards = document.querySelectorAll('.objective-card, .gallery-item, .contact-item, .about-content, .board-member');
+    cards.forEach((card, index) => {
+        card.classList.add('scroll-item');
+        card.style.setProperty('--delay', `${index * 0.1}s`);
+        observer.observe(card);
+    });
+}
+
+// Parallax Effect for Backgrounds
+function initParallax() {
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const parallaxElements = document.querySelectorAll('[data-parallax]');
+
+        parallaxElements.forEach(el => {
+            const speed = el.dataset.parallax || 0.5;
+            el.style.transform = `translateY(${scrolled * speed}px)`;
+        });
+    });
+}
+
 // Wait for DOM to load
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize scroll animations
+    initScrollAnimations();
+    initParallax();
+
     // Get the register button
     const registerBtn = document.getElementById('registerBtn');
 
