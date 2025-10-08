@@ -323,7 +323,7 @@ function initScrollAnimations() {
     const observerOptions = {
         root: null,
         rootMargin: '0px',
-        threshold: 0.15
+        threshold: 0.05  // Reduced from 0.15 to trigger earlier
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -341,11 +341,10 @@ function initScrollAnimations() {
         observer.observe(section);
     });
 
-    // Observe cards and items
+    // Observe cards and items - no delay, all appear at once
     const cards = document.querySelectorAll('.objective-card, .gallery-item, .contact-item, .about-content, .board-member, .sponsor-card');
-    cards.forEach((card, index) => {
+    cards.forEach((card) => {
         card.classList.add('scroll-item');
-        card.style.setProperty('--delay', `${index * 0.1}s`);
         observer.observe(card);
     });
 }

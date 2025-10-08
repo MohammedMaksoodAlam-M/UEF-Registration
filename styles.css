@@ -85,7 +85,7 @@ body {
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Georgia', 'Times New Roman', serif;
 }
 
 .nav-links a::after {
@@ -1926,9 +1926,9 @@ body {
 /* Scroll Animations */
 .scroll-section {
     opacity: 0;
-    transform: translateY(50px) scale(0.95);
-    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-                transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(20px) scale(0.98);
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .scroll-section.animate-in {
@@ -1938,9 +1938,9 @@ body {
 
 .scroll-item {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1) var(--delay, 0s),
-                transform 0.6s cubic-bezier(0.4, 0, 0.2, 1) var(--delay, 0s);
+    transform: translateY(20px);
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .scroll-item.animate-in {
@@ -2227,7 +2227,7 @@ body {
     font-weight: 500;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Georgia', 'Times New Roman', serif;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     font-size: 0.9em;
