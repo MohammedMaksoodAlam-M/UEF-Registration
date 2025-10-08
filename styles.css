@@ -770,18 +770,36 @@ body {
 /* Summit Section */
 .summit-section {
     padding: 120px 0;
-    background: linear-gradient(135deg, #0a0a1e 0%, #1a1a2e 100%);
     position: relative;
+    overflow: hidden;
+}
+
+.summit-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/pexels-quintion-34169032.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: -1;
 }
 
 .summit-section::before {
     content: '';
     position: absolute;
-    bottom: 0;
+    top: 0;
     left: 0;
     width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(197, 31, 132, 0.6), transparent);
+    height: 100%;
+    background: linear-gradient(135deg,
+        rgba(10, 10, 30, 0.85) 0%,
+        rgba(26, 26, 46, 0.88) 50%,
+        rgba(10, 10, 30, 0.85) 100%);
+    z-index: 0;
 }
 
 .summit-content {
@@ -797,6 +815,7 @@ body {
         inset 0 0 30px rgba(197, 31, 132, 0.05);
     position: relative;
     overflow: hidden;
+    z-index: 1;
 }
 
 .summit-content::before {
