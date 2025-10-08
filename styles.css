@@ -2077,70 +2077,102 @@ body {
     transform: translateY(-2px);
 }
 
-/* Responsive for Registration Modal */
+/* Responsive for Registration Modal - Enhanced Mobile Experience */
 @media (max-width: 768px) {
     .registration-modal {
         padding: 0;
-    }
-    
-    .registration-content {
-        padding: 35px 25px;
-        width: 100%;
-        height: 100vh;
-        max-height: 100vh;
-        overflow-y: auto;
-        border-radius: 0;
-        margin: 0;
         background: rgba(10, 10, 30, 0.98);
     }
 
+    .registration-content {
+        padding: 40px 20px 40px;
+        width: 100%;
+        min-height: 100vh;
+        overflow-y: auto;
+        border-radius: 0;
+        margin: 0;
+        background: linear-gradient(135deg,
+            rgba(10, 10, 30, 0.98) 0%,
+            rgba(26, 26, 46, 0.95) 100%);
+        backdrop-filter: blur(25px);
+        box-shadow: none;
+        border: none;
+    }
+
     .registration-close {
-        top: 15px;
+        position: fixed;
+        top: 20px;
         right: 20px;
-        font-size: 32px;
+        font-size: 36px;
+        width: 45px;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(197, 31, 132, 0.2);
+        border-radius: 50%;
+        border: 1px solid rgba(197, 31, 132, 0.4);
+        z-index: 100;
     }
 
     .registration-title {
-        font-size: 1.8em;
-        margin-bottom: 25px;
+        font-size: 2em;
+        margin-bottom: 30px;
         letter-spacing: 1px;
+        text-align: center;
+        padding: 0 10px;
+        line-height: 1.2;
+        text-shadow: 0 0 20px rgba(197, 31, 132, 0.6);
     }
-    
+
     .form-section {
-        margin-bottom: 35px;
-        padding-bottom: 25px;
+        margin-bottom: 40px;
+        padding-bottom: 30px;
+        padding: 25px;
+        background: rgba(255, 255, 255, 0.04);
+        backdrop-filter: blur(15px);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .form-section h3 {
-        font-size: 1.4em;
-        margin-bottom: 22px;
+        font-size: 1.5em;
+        margin-bottom: 25px;
         letter-spacing: 1px;
+        color: #e73b9f;
+        text-shadow: 0 0 12px rgba(231, 59, 159, 0.5);
     }
-    
+
     .form-group {
-        margin-bottom: 15px;
+        margin-bottom: 20px;
     }
-    
+
     .form-group label {
-        font-size: 0.9em;
-        margin-bottom: 6px;
+        font-size: 0.95em;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.9);
     }
-    
+
     .form-group input[type="text"],
+    .form-group input[type="email"],
     .form-group input[type="date"],
     .form-group select,
     .form-group textarea {
-        padding: 12px;
+        padding: 14px 16px;
         font-size: 16px; /* Prevents zoom on iOS */
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 15px;
     }
-    
+
     .form-row {
         flex-direction: column;
         gap: 0;
     }
-    
+
     .form-row .form-group {
-        margin-bottom: 15px;
+        margin-bottom: 20px;
     }
     
     .rating-container {
@@ -2183,15 +2215,10 @@ body {
         flex-direction: column;
         gap: 10px;
         margin-top: 30px;
-        position: sticky;
-        bottom: 0;
-        background: white;
         padding: 20px 0 10px;
-        margin-left: -20px;
-        margin-right: -20px;
-        padding-left: 20px;
-        padding-right: 20px;
-        box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
+        background: transparent;
+        position: relative;
+        box-shadow: none;
     }
     
     .submit-btn,
@@ -2593,32 +2620,42 @@ body {
     }
 }
 
-/* Responsive Design */
+/* Responsive Design - Enhanced Mobile Experience */
 @media (max-width: 768px) {
+    /* Navigation Mobile Improvements */
     .nav-links {
         display: none;
     }
-    
+
     .mobile-menu-toggle {
         display: flex;
     }
-    
+
     .mobile-nav {
         display: block;
     }
-    
+
     .navbar {
-        padding: 15px 0;
+        padding: 12px 0;
     }
-    
+
     .logo {
-        height: 40px;
+        height: 35px;
     }
-    
-    /* Hero Section Mobile */
+
+    .header {
+        backdrop-filter: blur(20px);
+        background: rgba(10, 10, 30, 0.95);
+    }
+
+    /* Hero Section Mobile - Better Visual Impact */
     .hero-section {
-        height: 70vh;
-        min-height: 500px;
+        height: 100vh;
+        min-height: 600px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
     }
 
     .hero-video {
@@ -2626,18 +2663,34 @@ body {
     }
 
     .hero-overlay {
-        background: linear-gradient(135deg, #0a0a1e 0%, #1a1a2e 50%, #c51f84 100%);
+        background: linear-gradient(135deg,
+            rgba(10, 10, 30, 0.95) 0%,
+            rgba(26, 26, 46, 0.9) 50%,
+            rgba(197, 31, 132, 0.3) 100%);
+    }
+
+    .hero-content {
+        padding: 40px 20px;
+        text-align: center;
+        max-width: 100%;
     }
 
     .hero-title {
-        font-size: 2.2em;
-        line-height: 1.2;
+        font-size: 2.5em;
+        line-height: 1.15;
         margin-bottom: 20px;
+        letter-spacing: 1px;
+        text-shadow:
+            0 0 30px rgba(197, 31, 132, 0.8),
+            0 2px 10px rgba(0, 0, 0, 0.8);
     }
 
     .hero-subtitle {
-        font-size: 1.1em;
-        margin-bottom: 10px;
+        font-size: 1.15em;
+        margin-bottom: 15px;
+        padding: 0 10px;
+        line-height: 1.4;
+        color: rgba(255, 255, 255, 0.9);
     }
 
     /* Register Section Mobile */
@@ -2706,54 +2759,78 @@ body {
         font-size: 1.2rem;
     }
 
-    /* CTA Section Mobile */
+    /* CTA Section Mobile - Enhanced */
     .cta-section {
-        padding: 60px 0;
+        padding: 80px 20px;
+        background: linear-gradient(135deg,
+            rgba(10, 10, 30, 0.98) 0%,
+            rgba(26, 26, 46, 0.95) 100%);
+    }
+
+    .cta-content {
+        padding: 0 15px;
     }
 
     .cta-description {
-        font-size: 1.1em;
-        margin-bottom: 30px;
-        padding: 0 20px;
+        font-size: 1.2em;
+        margin-bottom: 35px;
+        line-height: 1.6;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.9);
     }
 
     .register-btn {
-        width: 90%;
-        max-width: 300px;
-        padding: 18px 30px;
-        font-size: 1.1em;
+        width: 100%;
+        max-width: 280px;
+        padding: 20px 40px;
+        font-size: 1.15em;
+        font-weight: 700;
+        border-radius: 60px;
+        box-shadow: 0 15px 40px rgba(197, 31, 132, 0.5);
+        animation: pulse 2s infinite;
     }
-    
-    /* Section Headers Mobile */
-    .section-header h2 {
-        font-size: 2em;
-        margin-bottom: 15px;
+
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.02); }
     }
-    
-    .section-divider {
-        width: 60px;
-        height: 4px;
+
+    /* Section Headers Mobile - Improved */
+    .section-header {
+        margin-bottom: 50px;
+        padding: 0 20px;
     }
-    
-    /* Section Headers Mobile */
+
     .section-header h2 {
         font-size: 2.2em;
         margin-bottom: 20px;
+        line-height: 1.2;
+        letter-spacing: 1px;
     }
 
     .section-divider {
-        width: 80px;
-        height: 3px;
+        width: 100px;
+        height: 4px;
+        background: linear-gradient(90deg,
+            transparent,
+            rgba(197, 31, 132, 0.8),
+            rgba(231, 59, 159, 0.8),
+            transparent);
+        animation: shimmer 3s infinite;
     }
 
-    /* About Section Mobile */
+    /* About Section Mobile - Enhanced */
     .about-section {
-        padding: 80px 0;
+        padding: 80px 20px;
+        background: linear-gradient(135deg,
+            rgba(10, 10, 30, 0.95) 0%,
+            rgba(26, 26, 46, 0.9) 100%);
     }
 
     .about-content {
         flex-direction: column;
-        gap: 35px;
+        gap: 40px;
+        padding: 0;
     }
 
     .about-left {
@@ -2764,58 +2841,110 @@ body {
     }
 
     .founder-image-container {
-        padding: 25px;
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(20px);
+        border-radius: 25px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        border: 1px solid rgba(197, 31, 132, 0.4);
+        max-width: 320px;
+        width: 100%;
     }
 
     .founder-image {
-        max-width: 250px;
+        width: 100%;
+        max-width: 260px;
+        border-radius: 20px;
+        border: 3px solid rgba(197, 31, 132, 0.5);
+    }
+
+    .founder-title {
+        font-size: 1em;
+        margin-top: 15px;
+    }
+
+    .founder-name {
+        font-size: 1.1em;
+        margin-top: 8px;
     }
 
     .about-right {
-        padding: 30px 25px;
+        padding: 35px 25px;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(15px);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
     }
 
     .about-text {
-        text-align: left;
-        font-size: 1em;
-        margin-bottom: 20px;
-        line-height: 1.8;
+        text-align: justify;
+        font-size: 1.05em;
+        margin-bottom: 25px;
+        line-height: 1.7;
+        color: rgba(255, 255, 255, 0.85);
     }
 
-    /* Objectives Section Mobile */
+    /* Objectives Section Mobile - Enhanced */
     .objectives-section {
-        padding: 80px 0;
+        padding: 80px 20px;
+        background-attachment: scroll;
     }
 
     .objectives-grid {
         grid-template-columns: 1fr;
-        gap: 25px;
+        gap: 30px;
+        padding: 0;
     }
 
     .objective-card {
-        padding: 35px 28px;
+        padding: 40px 30px;
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 25px;
+        box-shadow:
+            0 15px 40px rgba(0, 0, 0, 0.4),
+            inset 0 0 30px rgba(197, 31, 132, 0.08);
+        transform: translateY(0);
+    }
+
+    .objective-card:hover {
+        transform: translateY(-5px);
     }
 
     .objective-number {
-        font-size: 2.5em;
+        font-size: 2.8em;
+        font-weight: 800;
+        margin-bottom: 20px;
+        text-shadow: 0 0 25px rgba(197, 31, 132, 0.6);
     }
 
     .objective-card h3 {
-        font-size: 1.3em;
+        font-size: 1.4em;
+        margin-bottom: 18px;
+        line-height: 1.3;
+        color: #fff;
     }
 
     .objective-card p {
-        font-size: 1em;
+        font-size: 1.05em;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.8);
     }
 
-    /* Board Section Mobile */
+    /* Board Section Mobile - Enhanced */
     .board-section {
-        padding: 80px 0;
+        padding: 80px 20px;
+        background: linear-gradient(135deg,
+            rgba(26, 26, 46, 0.95) 0%,
+            rgba(10, 10, 30, 0.98) 100%);
     }
 
     .board-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
+        grid-template-columns: 1fr;
+        gap: 25px;
+        max-width: 350px;
+        margin: 0 auto;
     }
 
     /* Reset centering for mobile */
@@ -2825,37 +2954,396 @@ body {
     }
 
     .board-member {
-        padding: 30px 20px;
+        padding: 35px 25px;
+        background: rgba(255, 255, 255, 0.07);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(197, 31, 132, 0.3);
+        border-radius: 25px;
+        box-shadow:
+            0 15px 40px rgba(0, 0, 0, 0.4),
+            inset 0 0 30px rgba(197, 31, 132, 0.05);
+    }
+
+    .board-member:hover {
+        transform: translateY(-5px) scale(1.02);
     }
 
     .member-image-container {
-        width: 160px;
-        height: 210px;
-        margin-bottom: 20px;
+        width: 200px;
+        height: 260px;
+        margin: 0 auto 25px;
+        border-radius: 20px;
+        border-width: 3px;
+        box-shadow: 0 15px 40px rgba(197, 31, 132, 0.4);
     }
 
     .member-name {
-        font-size: 1.05em;
+        font-size: 1.2em;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-shadow: 0 0 15px rgba(231, 59, 159, 0.6);
     }
 
-    /* Sponsors Section Mobile */
+    /* Sponsors Section Mobile - Enhanced */
     .sponsors-section {
-        padding: 80px 0;
+        padding: 80px 20px;
+        background: linear-gradient(135deg,
+            rgba(10, 10, 30, 0.95) 0%,
+            rgba(26, 26, 46, 0.9) 100%);
+    }
+
+    .sponsors-container {
+        padding: 0;
     }
 
     .sponsors-large {
         grid-template-columns: 1fr;
-        gap: 30px;
-        margin-bottom: 30px;
+        gap: 25px;
+        margin-bottom: 25px;
     }
 
     .sponsors-small {
         grid-template-columns: 1fr;
-        gap: 25px;
+        gap: 20px;
     }
 
     .sponsor-large {
-        height: 250px;
+        height: 260px;
+        padding: 40px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(197, 31, 132, 0.3);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .sponsor-small {
+        height: 220px;
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(197, 31, 132, 0.25);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .sponsor-placeholder {
+        border-width: 3px;
+        border-radius: 20px;
+        background: rgba(197, 31, 132, 0.05);
+    }
+
+    .sponsor-label {
+        font-size: 1.1em;
+        font-weight: 700;
+    }
+
+    /* Gallery Section Mobile - Enhanced */
+    .gallery-section {
+        padding: 80px 20px;
+        background: linear-gradient(135deg,
+            rgba(26, 26, 46, 0.95) 0%,
+            rgba(10, 10, 30, 0.98) 100%);
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .gallery-item {
+        height: 280px;
+        border-radius: 25px;
+        border-width: 3px;
+        overflow: hidden;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .gallery-item:hover {
+        transform: translateY(-8px) scale(1.02);
+    }
+
+    .gallery-overlay {
+        background: linear-gradient(135deg,
+            rgba(197, 31, 132, 0.8) 0%,
+            rgba(103, 58, 183, 0.8) 100%);
+    }
+
+    .gallery-icon {
+        font-size: 3em;
+        text-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
+    }
+
+    /* Summit Section Mobile - Enhanced */
+    .summit-section {
+        padding: 80px 20px;
+        background-attachment: scroll;
+    }
+
+    .summit-content {
+        padding: 40px 30px;
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(25px);
+        border-radius: 25px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        box-shadow:
+            0 20px 50px rgba(0, 0, 0, 0.4),
+            inset 0 0 40px rgba(197, 31, 132, 0.08);
+        max-width: 100%;
+    }
+
+    .summit-text {
+        font-size: 1.1em;
+        margin-bottom: 30px;
+        line-height: 1.7;
+        text-align: justify;
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    /* Contact Section Mobile - Enhanced */
+    .contact-section {
+        padding: 80px 20px;
+        background: linear-gradient(135deg,
+            rgba(26, 26, 46, 0.95) 0%,
+            rgba(10, 10, 30, 0.98) 100%);
+    }
+
+    .contact-info {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .contact-item {
+        padding: 45px 30px;
+        background: rgba(255, 255, 255, 0.07);
+        backdrop-filter: blur(20px);
+        border-radius: 25px;
+        border: 1px solid rgba(197, 31, 132, 0.3);
+        box-shadow:
+            0 15px 40px rgba(0, 0, 0, 0.4),
+            inset 0 0 30px rgba(197, 31, 132, 0.05);
+    }
+
+    .contact-item:hover {
+        transform: translateY(-5px) scale(1.02);
+    }
+
+    .contact-item h3 {
+        font-size: 1.4em;
+        margin-bottom: 20px;
+        text-shadow: 0 0 15px rgba(231, 59, 159, 0.6);
+    }
+
+    .contact-item p {
+        font-size: 1.05em;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.85);
+    }
+
+    .contact-item a {
+        font-weight: 500;
+    }
+
+    /* Footer Mobile - Enhanced */
+    .footer {
+        padding: 70px 20px 30px;
+        background: linear-gradient(180deg,
+            rgba(10, 10, 30, 0.98) 0%,
+            rgba(0, 0, 0, 1) 100%);
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 45px;
+    }
+
+    .footer-logo {
+        height: 60px;
+        margin: 0 auto 20px;
+        filter: brightness(1.3) drop-shadow(0 0 15px rgba(197, 31, 132, 0.5));
+    }
+
+    .footer-section h4 {
+        font-size: 1.3em;
+        margin-bottom: 20px;
+        text-shadow: 0 0 12px rgba(231, 59, 159, 0.5);
+    }
+
+    .footer-section p,
+    .footer-section a {
+        font-size: 1em;
+        line-height: 1.6;
+    }
+
+    .footer-bottom {
+        padding-top: 35px;
+        margin-top: 35px;
+        border-top: 1px solid rgba(197, 31, 132, 0.3);
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    /* General Mobile Styles - Ultra Small Screens */
+    .container {
+        padding: 0 15px;
+    }
+
+    /* Hero Section Small Mobile - Full Screen Impact */
+    .hero-section {
+        height: 100vh;
+        min-height: 100vh;
+        padding: 15px;
+    }
+
+    .hero-content {
+        padding: 30px 15px;
+    }
+
+    .hero-title {
+        font-size: 2em;
+        letter-spacing: 0.5px;
+        margin-bottom: 15px;
+        line-height: 1.1;
+    }
+
+    .hero-subtitle {
+        font-size: 1.05em;
+        padding: 0 5px;
+        margin-bottom: 10px;
+    }
+
+    /* CTA Section Small Mobile - Improved */
+    .cta-section {
+        padding: 60px 15px;
+    }
+
+    .cta-description {
+        font-size: 1.1em;
+        padding: 0;
+        line-height: 1.5;
+        margin-bottom: 30px;
+    }
+
+    .register-btn {
+        font-size: 1.05em;
+        padding: 18px 35px;
+        width: 100%;
+        max-width: 260px;
+    }
+    
+    /* Section Headers Small Mobile - Enhanced */
+    .section-header {
+        margin-bottom: 40px;
+        padding: 0 10px;
+    }
+
+    .section-header h2 {
+        font-size: 1.8em;
+        margin-bottom: 15px;
+    }
+
+    .section-divider {
+        width: 80px;
+        height: 3px;
+    }
+
+    /* All Sections Padding - Better Spacing */
+    .about-section,
+    .board-section,
+    .objectives-section,
+    .sponsors-section,
+    .gallery-section,
+    .summit-section,
+    .contact-section {
+        padding: 60px 15px;
+    }
+
+    /* About Section Small Mobile - Optimized */
+    .about-content {
+        gap: 30px;
+    }
+
+    .founder-image-container {
+        padding: 25px;
+        max-width: 280px;
+    }
+
+    .founder-image {
+        max-width: 220px;
+    }
+
+    .founder-title {
+        font-size: 0.9em;
+    }
+
+    .founder-name {
+        font-size: 1em;
+    }
+
+    .about-right {
+        padding: 30px 20px;
+    }
+
+    .about-text {
+        font-size: 1em;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        text-align: left;
+    }
+
+    /* Objectives Small Mobile - Enhanced */
+    .objectives-grid {
+        gap: 25px;
+    }
+
+    .objective-card {
+        padding: 35px 25px;
+    }
+
+    .objective-number {
+        font-size: 2.5em;
+        margin-bottom: 15px;
+    }
+
+    .objective-card h3 {
+        font-size: 1.25em;
+        margin-bottom: 15px;
+    }
+
+    .objective-card p {
+        font-size: 1em;
+    }
+
+    /* Board Section Small Mobile - Improved */
+    .board-grid {
+        gap: 20px;
+        max-width: 300px;
+    }
+
+    .board-member {
+        padding: 30px 20px;
+    }
+
+    .member-image-container {
+        width: 180px;
+        height: 235px;
+        margin-bottom: 20px;
+    }
+
+    .member-name {
+        font-size: 1.1em;
+    }
+
+    /* Sponsors Small Mobile */
+    .sponsors-large,
+    .sponsors-small {
+        gap: 20px;
+    }
+
+    .sponsor-large {
+        height: 240px;
         padding: 35px;
     }
 
@@ -2864,328 +3352,198 @@ body {
         padding: 25px;
     }
 
-    /* Gallery Section Mobile */
-    .gallery-section {
-        padding: 80px 0;
-    }
-
+    /* Gallery Small Mobile - Better Layout */
     .gallery-grid {
-        grid-template-columns: 1fr;
         gap: 25px;
+        max-width: 350px;
     }
 
     .gallery-item {
         height: 250px;
+        border-radius: 20px;
     }
 
-    /* Summit Section Mobile */
-    .summit-section {
-        padding: 80px 0;
-    }
-
+    /* Summit Small Mobile - Improved Readability */
     .summit-content {
         padding: 35px 25px;
+        border-radius: 20px;
     }
 
     .summit-text {
-        font-size: 1.05em;
+        font-size: 1em;
+        line-height: 1.6;
         margin-bottom: 25px;
-        line-height: 1.8;
     }
 
-    /* Contact Section Mobile */
-    .contact-section {
-        padding: 80px 0;
-    }
-
+    /* Contact Small Mobile - Better Cards */
     .contact-info {
-        grid-template-columns: 1fr;
         gap: 25px;
+        max-width: 350px;
     }
 
     .contact-item {
         padding: 40px 25px;
+        border-radius: 20px;
     }
 
     .contact-item h3 {
-        font-size: 1.3em;
-    }
-
-    .contact-item p {
-        font-size: 1em;
-    }
-
-    /* Footer Mobile */
-    .footer {
-        padding: 60px 0 25px;
-    }
-
-    .footer-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 40px;
-    }
-
-    .footer-logo {
-        height: 55px;
-    }
-}
-
-@media (max-width: 480px) {
-    /* General Mobile Styles */
-    .container {
-        padding: 0 15px;
-    }
-    
-    /* Hero Section Small Mobile */
-    .hero-section {
-        height: 65vh;
-        min-height: 450px;
-    }
-
-    .hero-title {
-        font-size: 1.8em;
-        letter-spacing: 1px;
-    }
-
-    .hero-subtitle {
-        font-size: 1em;
-    }
-
-    /* CTA Section Small Mobile */
-    .cta-section {
-        padding: 50px 0;
-    }
-
-    .cta-description {
-        font-size: 1em;
-        padding: 0 15px;
-    }
-
-    .register-btn {
-        font-size: 1em;
-        padding: 16px 25px;
-    }
-    
-    /* Section Headers Small Mobile */
-    .section-header h2 {
-        font-size: 1.6em;
-    }
-    
-    .section-divider {
-        width: 50px;
-        height: 3px;
-    }
-    
-    /* All Sections Padding */
-    .about-section,
-    .objectives-section,
-    .summit-section,
-    .gallery-section,
-    .contact-section {
-        padding: 40px 0;
-    }
-    
-    /* Section Headers Small Mobile */
-    .section-header h2 {
-        font-size: 1.8em;
-    }
-
-    .section-divider {
-        width: 60px;
-        height: 3px;
-    }
-
-    /* About Section Small Mobile */
-    .about-section {
-        padding: 60px 0;
-    }
-
-    .founder-image-container {
-        padding: 20px;
-    }
-
-    .founder-image {
-        max-width: 200px;
-    }
-
-    .founder-title,
-    .founder-name {
-        font-size: 0.95em;
-    }
-
-    .about-right {
-        padding: 25px 20px;
-    }
-
-    .about-text {
-        font-size: 0.95em;
-        line-height: 1.7;
-    }
-
-    /* Objectives Small Mobile */
-    .objectives-section {
-        padding: 60px 0;
-    }
-
-    .objective-card {
-        padding: 30px 22px;
-    }
-
-    .objective-number {
-        font-size: 2.2em;
-    }
-
-    .objective-card h3 {
-        font-size: 1.15em;
-    }
-
-    .objective-card p {
-        font-size: 0.95em;
-    }
-
-    /* Board Section Small Mobile */
-    .board-section {
-        padding: 60px 0;
-    }
-
-    .board-grid {
-        grid-template-columns: 1fr;
-        gap: 25px;
-    }
-
-    .board-member {
-        padding: 28px 18px;
-    }
-
-    .member-image-container {
-        width: 150px;
-        height: 195px;
+        font-size: 1.25em;
         margin-bottom: 18px;
-        border-width: 2px;
-    }
-
-    .member-name {
-        font-size: 1em;
-    }
-
-    /* Gallery Small Mobile */
-    .gallery-section {
-        padding: 60px 0;
-    }
-
-    .gallery-item {
-        height: 220px;
-    }
-
-    /* Summit Text Small Mobile */
-    .summit-section {
-        padding: 60px 0;
-    }
-
-    .summit-content {
-        padding: 30px 20px;
-    }
-
-    .summit-text {
-        font-size: 0.95em;
-        line-height: 1.7;
-    }
-
-    /* Contact Small Mobile */
-    .contact-section {
-        padding: 60px 0;
-    }
-
-    .contact-item {
-        padding: 35px 20px;
-    }
-
-    .contact-item h3 {
-        font-size: 1.15em;
     }
 
     .contact-item p {
-        font-size: 0.95em;
+        font-size: 1em;
     }
 
-    /* Footer Small Mobile */
+    /* Footer Small Mobile - Optimized */
     .footer {
-        padding: 50px 0 20px;
+        padding: 60px 15px 25px;
     }
 
     .footer-logo {
-        height: 45px;
-        margin-bottom: 20px;
+        height: 50px;
+        margin-bottom: 18px;
     }
 
     .footer-section h4 {
-        font-size: 1.1em;
-        margin-bottom: 18px;
+        font-size: 1.2em;
+        margin-bottom: 16px;
     }
 
     .footer-section p,
     .footer-section a {
-        font-size: 0.9em;
+        font-size: 0.95em;
+        line-height: 1.5;
     }
 
     .footer-content {
-        gap: 35px;
+        gap: 40px;
+    }
+
+    .footer-bottom {
+        padding-top: 30px;
+        margin-top: 30px;
+        font-size: 0.85em;
     }
     
-    /* Modal Small Mobile */
+    /* Modal Small Mobile - Enhanced */
     .modal-content {
         margin-top: 30px;
         max-width: 95%;
     }
-    
+
     .modal-close {
         top: 20px;
-        right: 30px;
-        font-size: 35px;
+        right: 20px;
+        font-size: 32px;
     }
-    
-    /* Registration Form Small Mobile */
+
+    /* Registration Form Small Mobile - Optimized */
+    .registration-content {
+        padding: 35px 15px 35px;
+    }
+
     .registration-title {
-        font-size: 1.4em;
+        font-size: 1.6em;
+        margin-bottom: 25px;
     }
-    
+
+    .form-section {
+        padding: 20px;
+        margin-bottom: 30px;
+    }
+
     .form-section h3 {
-        font-size: 1.2em;
+        font-size: 1.3em;
+        margin-bottom: 20px;
     }
-    
+
+    .form-group {
+        margin-bottom: 18px;
+    }
+
+    .form-group label {
+        font-size: 0.9em;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="date"],
+    .form-group select,
+    .form-group textarea {
+        padding: 12px 14px;
+        font-size: 16px;
+    }
+
     .rating-circles {
         display: flex;
         flex-wrap: wrap;
-        gap: 6px;
+        gap: 8px;
         width: 100%;
         justify-content: center;
-        padding: 0;
+        padding: 10px 0;
     }
-    
+
     .rating-circle {
-        width: calc((100% - 30px) / 5);
-        max-width: 35px;
-        min-width: 30px;
-        height: 35px;
+        width: 38px;
+        height: 38px;
         flex-shrink: 0;
     }
-    
+
+    /* Skills Section Mobile */
+    .skills-input-wrapper {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .add-skill-btn {
+        width: 100%;
+        padding: 12px;
+    }
+
+    /* Payment QR Mobile */
+    .payment-qr-container {
+        padding: 20px 10px;
+    }
+
+    .payment-qr-image {
+        max-width: 250px;
+    }
+
+    /* Form Actions Mobile */
+    .form-actions {
+        position: relative;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 40px;
+        padding-top: 30px;
+        border-top: 1px solid rgba(197, 31, 132, 0.3);
+    }
+
     /* Touch-friendly sizes */
     button,
     .register-btn,
     .submit-btn,
     .cancel-btn,
     .add-skill-btn {
-        min-height: 44px;
+        min-height: 48px;
         touch-action: manipulation;
+        font-size: 1em;
     }
-    
+
     input[type="text"],
+    input[type="email"],
     input[type="date"],
     select,
     textarea {
         min-height: 44px;
         touch-action: manipulation;
+    }
+
+    .submit-btn,
+    .cancel-btn {
+        width: 100%;
+        padding: 14px;
+        font-size: 1em;
     }
 }
