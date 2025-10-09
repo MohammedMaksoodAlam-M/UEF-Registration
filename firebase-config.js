@@ -21,7 +21,10 @@ const db = firebase.firestore();
 // Initialize Storage
 const storage = firebase.storage();
 
-// Reference to the UEFAttendees collection
-const attendeesCollection = db.collection('events').doc('data').collection('users');
+// Reference to the users collection (new structure)
+const usersCollection = db.collection('users');
+
+// Legacy reference - kept for backward compatibility if needed
+// const attendeesCollection = db.collection('events').doc('data').collection('users');
 
 console.log('Firebase initialized successfully');

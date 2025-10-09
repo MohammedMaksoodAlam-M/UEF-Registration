@@ -8,10 +8,10 @@ let countdownInterval = null;
 // Check if email already exists in Firestore
 async function checkEmailExists(email) {
     try {
-        const querySnapshot = await attendeesCollection
+        const querySnapshot = await db.collection('users')
             .where('email', '==', email.toLowerCase().trim())
             .get();
-        
+
         return !querySnapshot.empty;
     } catch (error) {
         console.error('Error checking email existence:', error);
@@ -375,6 +375,22 @@ document.addEventListener('DOMContentLoaded', function() {
     registerBtn.addEventListener('click', function() {
         openRegistrationModal();
     });
+
+    // Handle occupation select change for "Other" option
+    const occupationSelect = document.getElementById('occupation');
+    const customOccupationGroup = document.getElementById('customOccupationGroup');
+    const customOccupationInput = document.getElementById('customOccupation');
+
+    occupationSelect.addEventListener('change', function() {
+        if (this.value === 'other') {
+            customOccupationGroup.style.display = 'block';
+            customOccupationInput.required = true;
+        } else {
+            customOccupationGroup.style.display = 'none';
+            customOccupationInput.required = false;
+            customOccupationInput.value = ''; // Clear the field when hidden
+        }
+    });
     
     // Smooth scrolling for navigation links
     const navLinks = document.querySelectorAll('a[href^="#"]');
@@ -461,7 +477,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             // Double-check email doesn't exist (safety check)
-            const emailValue = document.getElementById('email').value.trim();
+            const emailValue = document.getElementById('email').value.trim().toLowerCase();
             const emailExists = await checkEmailExists(emailValue);
 
             if (emailExists) {
@@ -491,7 +507,7 @@ document.addEventListener('DOMContentLoaded', function() {
             };
 
             const userPassword = generateSecurePassword();
-            const userEmail = document.getElementById('email').value.trim();
+            const userEmail = document.getElementById('email').value.trim().toLowerCase(); // Convert to lowercase for consistency
 
             // Create user in Firebase Authentication
             const userCredential = await auth.createUserWithEmailAndPassword(userEmail, userPassword);
@@ -499,21 +515,32 @@ document.addEventListener('DOMContentLoaded', function() {
 
             console.log('User created in Firebase Auth with UID:', userId);
 
+            // Generate epoch-based document ID
+            const epochDocId = `user_${Date.now()}`;
+            console.log('Generated document ID:', epochDocId);
+
             // Collect form data
+            const occupationSelect = document.getElementById('occupation');
+            const occupationValue = occupationSelect.value === 'other'
+                ? document.getElementById('customOccupation').value.trim()
+                : occupationSelect.value;
+
             const formData = {
-                uid: userId,
+                uid: epochDocId, // Use the epoch-based document ID instead of Firebase Auth UID
+                authUid: userId, // Optional: Keep Firebase Auth UID for reference
                 name: document.getElementById('name').value,
-                email: userEmail,
+                email: userEmail, // userEmail is already lowercase from line 494
                 emailVerified: isEmailVerified,
                 dob: document.getElementById('dob').value,
                 gender: document.getElementById('gender').value,
-                occupation: document.getElementById('occupation').value,
+                occupation: occupationValue,
                 skills: skills,
                 networkingRating: parseInt(networkingRating.value),
                 success: document.getElementById('success').value,
                 meetPeople: document.getElementById('meetPeople').value,
                 strengths: document.getElementById('strengths').value,
                 weaknesses: document.getElementById('weaknesses').value,
+                hobby: document.getElementById('hobby').value,
                 registrationDate: firebase.firestore.FieldValue.serverTimestamp(),
                 approvalStatus: 'pending',
             };
@@ -552,19 +579,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 formData.paymentScreenshotUrl = null;
             }
 
-            // Save to Firestore
-            const docRef = await attendeesCollection.add(formData);
+            // Save to users collection with epoch-based document ID
+            await db.collection('users').doc(epochDocId).set(formData);
 
-            console.log('Registration saved with ID:', docRef.id);
-
-            // Also save to users root collection
-            await db.collection('users').add(formData);
-
-            // Also add user email to the users array in the events/data document
-            const eventsDataRef = db.collection('events').doc('data');
-            await eventsDataRef.set({
-                users: firebase.firestore.FieldValue.arrayUnion(formData.email)
-            }, { merge: true });
+            console.log('Registration saved with ID:', epochDocId);
 
             // Show success message
             showSuccessMessage('Registration submitted successfully!');
@@ -575,6 +593,11 @@ document.addEventListener('DOMContentLoaded', function() {
             renderSkills();
             document.querySelector('.file-name').textContent = 'No file chosen';
             document.querySelector('.payment-file-name').textContent = 'No file chosen';
+
+            // Reset custom occupation field
+            document.getElementById('customOccupationGroup').style.display = 'none';
+            document.getElementById('customOccupation').required = false;
+            document.getElementById('customOccupation').value = '';
 
             // Reset email verification state
             isEmailVerified = false;
@@ -666,6 +689,15 @@ function closeRegistrationModal() {
     otpTimestamp = null;
     if (countdownInterval) {
         clearInterval(countdownInterval);
+    }
+
+    // Reset custom occupation field
+    const customOccupationGroup = document.getElementById('customOccupationGroup');
+    const customOccupationInput = document.getElementById('customOccupation');
+    if (customOccupationGroup) {
+        customOccupationGroup.style.display = 'none';
+        customOccupationInput.required = false;
+        customOccupationInput.value = '';
     }
 
     // Reset email verification UI

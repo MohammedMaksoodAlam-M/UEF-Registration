@@ -23,12 +23,31 @@
     --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+html {
+    background-color: #0a0a1e;
+    /* Prevent white flash during load */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 body {
     font-family: 'Inter', sans-serif;
     color: var(--text-dark);
     line-height: 1.6;
     overflow-x: hidden;
-    background-color: var(--secondary-color);
+    background-color: #0a0a1e;
+    min-height: 100vh;
+    /* Smooth loading transition */
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .container {
@@ -1636,6 +1655,7 @@ body {
     border-radius: 25px;
     max-width: 850px;
     width: 90%;
+    font-family: 'Crimson Text', Georgia, serif;
     position: relative;
     animation: modalZoomIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow:
@@ -1675,13 +1695,14 @@ body {
 }
 
 .registration-title {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Playfair Display', Georgia, serif;
     font-size: 2.5em;
+    font-weight: 700;
     color: rgba(255, 255, 255, 0.95);
     margin-bottom: 35px;
     text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    text-transform: none;
+    letter-spacing: 0.5px;
     text-shadow:
         0 0 20px rgba(197, 31, 132, 0.6),
         0 0 40px rgba(197, 31, 132, 0.4);
@@ -1715,13 +1736,24 @@ body {
 }
 
 .form-section h3 {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.6em;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.8em;
+    font-weight: 600;
     color: #e73b9f;
-    margin-bottom: 30px;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+    text-transform: none;
+    letter-spacing: 0.3px;
     text-shadow: 0 0 15px rgba(231, 59, 159, 0.5);
+}
+
+.section-subtitle {
+    font-family: 'Merriweather', Georgia, serif;
+    font-size: 0.95em;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 25px;
+    font-style: italic;
+    line-height: 1.5;
 }
 
 .form-group {
@@ -1744,9 +1776,9 @@ body {
     font-weight: 500;
     color: rgba(255, 255, 255, 0.85);
     margin-bottom: 10px;
-    font-size: 0.95em;
-    font-family: 'Space Grotesk', sans-serif;
-    letter-spacing: 0.5px;
+    font-size: 1.05em;
+    font-family: 'Crimson Text', Georgia, serif;
+    letter-spacing: 0.2px;
 }
 
 .form-group input[type="text"],
@@ -1760,8 +1792,8 @@ body {
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 12px;
-    font-size: 1em;
-    font-family: 'Inter', sans-serif;
+    font-size: 1.05em;
+    font-family: 'Crimson Text', Georgia, serif;
     color: rgba(255, 255, 255, 0.9);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -1856,7 +1888,9 @@ body {
     color: #e73b9f;
     border-radius: 10px;
     cursor: pointer;
-    font-weight: 600;
+    font-weight: 500;
+    font-family: 'Crimson Text', Georgia, serif;
+    font-size: 1.05em;
     transition: all 0.3s ease;
     box-shadow: 0 0 15px rgba(197, 31, 132, 0.2);
 }
@@ -2020,15 +2054,15 @@ body {
 .submit-btn,
 .cancel-btn {
     padding: 16px 50px;
-    font-size: 1.1em;
-    font-weight: 600;
+    font-size: 1.15em;
+    font-weight: 500;
     border: none;
-    border-radius: 50px;
+    border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    font-family: 'Poppins', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    font-family: 'Playfair Display', Georgia, serif;
+    text-transform: none;
+    letter-spacing: 0.5px;
 }
 
 .submit-btn {
@@ -2137,10 +2171,15 @@ body {
 
     .form-section h3 {
         font-size: 1.5em;
-        margin-bottom: 25px;
+        margin-bottom: 10px;
         letter-spacing: 1px;
         color: #e73b9f;
         text-shadow: 0 0 12px rgba(231, 59, 159, 0.5);
+    }
+
+    .section-subtitle {
+        font-size: 0.85em;
+        margin-bottom: 20px;
     }
 
     .form-group {
@@ -2288,6 +2327,10 @@ body {
     transform: translateY(20px) scale(0.98);
     transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
                 transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Ensure sections have a dark background during transition */
+    background-color: #0a0a1e;
+    position: relative;
+    z-index: 1;
 }
 
 .scroll-section.animate-in {
@@ -2383,10 +2426,11 @@ body {
     color: #e73b9f;
     border-radius: 10px;
     cursor: pointer;
-    font-weight: 600;
+    font-weight: 500;
+    font-family: 'Crimson Text', Georgia, serif;
+    font-size: 1em;
     transition: all 0.3s ease;
     white-space: nowrap;
-    font-size: 0.9em;
     box-shadow: 0 0 15px rgba(197, 31, 132, 0.2);
 }
 
@@ -2446,10 +2490,11 @@ body {
     color: #4caf50;
     border-radius: 10px;
     cursor: pointer;
-    font-weight: 600;
+    font-weight: 500;
+    font-family: 'Crimson Text', Georgia, serif;
+    font-size: 1em;
     transition: all 0.3s ease;
     white-space: nowrap;
-    font-size: 0.9em;
     box-shadow: 0 0 15px rgba(76, 175, 80, 0.2);
 }
 
@@ -3455,7 +3500,12 @@ body {
 
     .form-section h3 {
         font-size: 1.3em;
-        margin-bottom: 20px;
+        margin-bottom: 8px;
+    }
+
+    .section-subtitle {
+        font-size: 0.8em;
+        margin-bottom: 18px;
     }
 
     .form-group {

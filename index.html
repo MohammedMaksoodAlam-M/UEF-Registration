@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UEF Trade Summit 2025 - Registration</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&family=Merriweather:wght@300;400;700&family=Crimson+Text:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="header">
@@ -485,7 +485,13 @@
                             <option value="other">Other</option>
                         </select>
                     </div>
-                    
+
+                    <!-- Custom occupation field - hidden by default -->
+                    <div class="form-group" id="customOccupationGroup" style="display: none;">
+                        <label for="customOccupation">Please specify your occupation *</label>
+                        <input type="text" id="customOccupation" name="customOccupation" placeholder="Enter your occupation">
+                    </div>
+
                     <div class="form-group">
                         <label>Skills</label>
                         <div class="skills-container">
@@ -501,7 +507,8 @@
                 <!-- Questionnaire Section -->
                 <div class="form-section">
                     <h3>Questionnaire</h3>
-                    
+                    <p class="section-subtitle">(Answers will be used by AI to analyze and match you with other attendees)</p>
+
                     <div class="form-group">
                         <label>1. How good would you rate your networking skills?</label>
                         <div class="rating-container">
@@ -540,6 +547,11 @@
                     <div class="form-group">
                         <label for="weaknesses">5. What are your weaknesses?</label>
                         <textarea id="weaknesses" name="weaknesses" rows="3" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="hobby">6. What's a hobby or passion you have outside your work?</label>
+                        <textarea id="hobby" name="hobby" rows="3" required></textarea>
                     </div>
                 </div>
 
