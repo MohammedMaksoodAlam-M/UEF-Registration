@@ -515,7 +515,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 strengths: document.getElementById('strengths').value,
                 weaknesses: document.getElementById('weaknesses').value,
                 registrationDate: firebase.firestore.FieldValue.serverTimestamp(),
-                ApprovalStatus: false
+                approvalStatus: 'pending',
             };
 
             // Handle profile picture upload
