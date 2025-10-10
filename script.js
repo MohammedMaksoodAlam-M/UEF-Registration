@@ -487,15 +487,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            // Validate networking rating
-            const networkingRating = document.querySelector('input[name="networking-rating"]:checked');
-            if (!networkingRating) {
-                showErrorMessage('Please rate your networking skills');
-                submitBtn.textContent = originalBtnText;
-                submitBtn.disabled = false;
-                return;
-            }
-
             // Generate a secure random password for the user
             const generateSecurePassword = () => {
                 const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*';
@@ -535,7 +526,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 gender: document.getElementById('gender').value,
                 occupation: occupationValue,
                 skills: skills,
-                networkingRating: parseInt(networkingRating.value),
                 success: document.getElementById('success').value,
                 meetPeople: document.getElementById('meetPeople').value,
                 strengths: document.getElementById('strengths').value,
