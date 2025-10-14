@@ -1784,6 +1784,7 @@ body {
 .form-group input[type="text"],
 .form-group input[type="email"],
 .form-group input[type="date"],
+.form-group input[type="number"],
 .form-group select,
 .form-group textarea {
     width: 100%;
@@ -1800,6 +1801,7 @@ body {
 
 .form-group input[type="text"]::placeholder,
 .form-group input[type="email"]::placeholder,
+.form-group input[type="number"]::placeholder,
 .form-group textarea::placeholder {
     color: rgba(255, 255, 255, 0.4);
 }
@@ -1807,6 +1809,7 @@ body {
 .form-group input[type="text"]:focus,
 .form-group input[type="email"]:focus,
 .form-group input[type="date"]:focus,
+.form-group input[type="number"]:focus,
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
@@ -1864,6 +1867,36 @@ body {
     color: rgba(255, 255, 255, 0.6);
     font-style: italic;
     font-size: 0.9em;
+}
+
+/* Conditional State Field */
+#stateGroup {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(-10px);
+}
+
+#stateGroup.show {
+    opacity: 1;
+    max-height: 150px;
+    transform: translateY(0);
+}
+
+#stateGroup.show #state {
+    animation: slideInUp 0.3s ease-out 0.1s both;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Skills Section */
@@ -2196,6 +2229,7 @@ body {
     .form-group input[type="text"],
     .form-group input[type="email"],
     .form-group input[type="date"],
+    .form-group input[type="number"],
     .form-group select,
     .form-group textarea {
         padding: 14px 16px;

@@ -391,6 +391,32 @@ document.addEventListener('DOMContentLoaded', function() {
             customOccupationInput.value = ''; // Clear the field when hidden
         }
     });
+
+    // Handle nationality select change for State field (India only)
+    const nationalitySelect = document.getElementById('nationality');
+    const stateGroup = document.getElementById('stateGroup');
+    const stateSelect = document.getElementById('state');
+
+    nationalitySelect.addEventListener('change', function() {
+        if (this.value === 'India') {
+            stateGroup.style.display = 'block';
+            // Add smooth transition class
+            setTimeout(() => {
+                stateGroup.classList.add('show');
+            }, 10);
+            stateSelect.required = true;
+        } else {
+            stateGroup.classList.remove('show');
+            // Wait for transition to complete before hiding
+            setTimeout(() => {
+                if (!stateGroup.classList.contains('show')) {
+                    stateGroup.style.display = 'none';
+                }
+            }, 400);
+            stateSelect.required = false;
+            stateSelect.value = ''; // Clear the field when hidden
+        }
+    });
     
     // Smooth scrolling for navigation links
     const navLinks = document.querySelectorAll('a[href^="#"]');
@@ -523,7 +549,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 email: userEmail, // userEmail is already lowercase from line 494
                 emailVerified: isEmailVerified,
                 dob: document.getElementById('dob').value,
+                age: parseInt(document.getElementById('age').value),
                 gender: document.getElementById('gender').value,
+                nationality: document.getElementById('nationality').value,
+                state: document.getElementById('nationality').value === 'India' 
+                    ? document.getElementById('state').value 
+                    : null,
                 occupation: occupationValue,
                 skills: skills,
                 success: document.getElementById('success').value,
@@ -588,6 +619,12 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('customOccupationGroup').style.display = 'none';
             document.getElementById('customOccupation').required = false;
             document.getElementById('customOccupation').value = '';
+
+            // Reset state field
+            document.getElementById('stateGroup').classList.remove('show');
+            document.getElementById('stateGroup').style.display = 'none';
+            document.getElementById('state').required = false;
+            document.getElementById('state').value = '';
 
             // Reset email verification state
             isEmailVerified = false;
@@ -688,6 +725,16 @@ function closeRegistrationModal() {
         customOccupationGroup.style.display = 'none';
         customOccupationInput.required = false;
         customOccupationInput.value = '';
+    }
+
+    // Reset state field
+    const stateGroup = document.getElementById('stateGroup');
+    const stateSelect = document.getElementById('state');
+    if (stateGroup) {
+        stateGroup.classList.remove('show');
+        stateGroup.style.display = 'none';
+        stateSelect.required = false;
+        stateSelect.value = '';
     }
 
     // Reset email verification UI
