@@ -5,6 +5,24 @@ let otpExpiryMinutes = 5;
 let isEmailVerified = false;
 let countdownInterval = null;
 
+// Sanitize filename to remove spaces and special characters
+function sanitizeFileName(filename) {
+    // Get file extension
+    const lastDotIndex = filename.lastIndexOf('.');
+    const name = lastDotIndex !== -1 ? filename.substring(0, lastDotIndex) : filename;
+    const extension = lastDotIndex !== -1 ? filename.substring(lastDotIndex) : '';
+
+    // Sanitize the name: remove/replace special characters and spaces
+    const sanitizedName = name
+        .toLowerCase()
+        .replace(/\s+/g, '-')           // Replace spaces with hyphens
+        .replace(/[^\w\-]/g, '')        // Remove all non-alphanumeric characters except hyphens
+        .replace(/\-+/g, '-')           // Replace multiple hyphens with single hyphen
+        .replace(/^\-+|\-+$/g, '');     // Remove leading/trailing hyphens
+
+    return sanitizedName + extension.toLowerCase();
+}
+
 // Check if email already exists in Firestore
 async function checkEmailExists(email) {
     try {
@@ -569,8 +587,9 @@ document.addEventListener('DOMContentLoaded', function() {
             // Handle profile picture upload
             const profilePicFile = document.getElementById('profilePic').files[0];
             if (profilePicFile) {
-                // Create a unique filename
-                const filename = `profile-pictures/${Date.now()}_${profilePicFile.name}`;
+                // Create a unique filename with sanitization
+                const sanitizedName = sanitizeFileName(profilePicFile.name);
+                const filename = `profile-pictures/${Date.now()}_${sanitizedName}`;
 
                 // Upload to Firebase Storage
                 const storageRef = storage.ref(filename);
@@ -586,8 +605,9 @@ document.addEventListener('DOMContentLoaded', function() {
             // Handle payment screenshot upload
             const paymentScreenshotFile = document.getElementById('paymentScreenshot').files[0];
             if (paymentScreenshotFile) {
-                // Create a unique filename
-                const filename = `payment-screenshots/${Date.now()}_${paymentScreenshotFile.name}`;
+                // Create a unique filename with sanitization
+                const sanitizedName = sanitizeFileName(paymentScreenshotFile.name);
+                const filename = `payment-screenshots/${Date.now()}_${sanitizedName}`;
 
                 // Upload to Firebase Storage
                 const storageRef = storage.ref(filename);
