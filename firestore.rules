@@ -4,10 +4,17 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
-    // Mail collection - for Trigger Email extension
+    // Mail collection - for Trigger Email extension (MUST be before catch-all)
     match /mail/{mailId} {
-      allow write: if true;  // Allow email sending
-      allow read: if false;  // No read access needed
+      allow create: if true;  // Allow email sending
+      allow read, update, delete: if false;  // No other operations needed
+    }
+
+    // Root users collection
+    match /users/{userId} {
+      allow read: if true;  // Allow reading
+      allow create: if true;  // Allow new registrations
+      allow update, delete: if false;  // No updates/deletes
     }
 
     // Events collection with nested users subcollection
@@ -23,14 +30,7 @@ service cloud.firestore {
       }
     }
 
-    // Root users collection (backup)
-    match /users/{userId} {
-      allow read: if true;  // Allow reading
-      allow create: if true;  // Allow new registrations
-      allow update, delete: if false;  // No updates/deletes
-    }
-
-    // Deny all other paths by default
+    // Deny all other paths by default (MUST be last)
     match /{document=**} {
       allow read, write: if false;
     }
